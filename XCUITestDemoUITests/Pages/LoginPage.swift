@@ -3,11 +3,11 @@ import XCTest
 struct LoginPage {
     let app: XCUIApplication
 
-    var username: XCUIElement { app.textFields["usernameTextField"] }
-    var password: XCUIElement { app.secureTextFields["passwordSecureField"] }
-    var loginButton: XCUIElement { app.buttons["loginButton"] }
-    var errorLabel: XCUIElement { app.staticTexts["loginErrorLabel"] }
-    var spinner: XCUIElement { app.otherElements["loginProgressView"] }
+    var username: XCUIElement { app.textFields["usernameTextField"].firstMatch }
+    var password: XCUIElement { app.secureTextFields["passwordSecureField"].firstMatch }
+    var loginButton: XCUIElement { app.buttons["loginButton"].firstMatch }
+    var errorLabel: XCUIElement { app.staticTexts["loginErrorLabel"].firstMatch }
+    var spinner: XCUIElement { app.otherElements["loginProgressView"].firstMatch }
 
     @discardableResult
     func launch(arguments: [String] = []) -> LoginPage {
